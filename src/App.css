@@ -43,3 +43,191 @@ body {
   letter-spacing: 0.2;
   color: rgb(147, 18, 147);
 }
+
+.elementos-centrados {
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+}
+
+.item-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  position: relative;
+  margin: 40px 16px 16px 16px;
+  border-radius: 8px;
+  padding: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info h2 {
+  font-size: 20px;
+}
+
+.info-price {
+  display: flex;
+  align-items: center;
+}
+
+.info-price h5 {
+  font-size: 10px;
+  text-decoration: line-through;
+  margin-left: 10px;
+  background-color: rgb(93, 92, 92);
+  padding: 4px;
+  border-radius: 8px;
+  color: white;
+}
+
+.info-price h3 {
+  font-size: 16px;
+}
+
+.item img {
+  border-radius: 8px;
+}
+
+.item:hover {
+  box-shadow: 0px 0px 12px 0.2px #ccc;
+}
+
+.descuentoOnline {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: rgb(199, 52, 204);
+  color: white;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.descuentoPresencial {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: rgb(53, 55, 175);
+  color: white;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.modalidadOnline {
+  position: absolute;
+  top: -43px;
+  right: -6px;
+  color: rgb(199, 52, 204);
+  font-weight: bolder;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.modalidadPresencial {
+  position: absolute;
+  top: -43px;
+  right: -6px;
+  color: rgb(53, 55, 175);
+  font-weight: bolder;
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: rgb(70, 49, 167);
+  padding: 5px;
+  text-decoration: none;
+}
+
+.btnVerDetalle {
+  border: 1px solid rgb(70, 49, 167);
+  padding: 5px;
+  width: 110px;
+  font-size: 14px;
+  background-color: white;
+  color: rgb(70, 49, 167);
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 15px;
+}
+
+.btnVerDetalle:hover {
+  border: 1px solid rgb(70, 49, 167);
+  background-color: rgb(70, 49, 167);
+  color: white;
+}
+
+.brand {
+  letter-spacing: 0.2em;
+  margin: 20px;
+}
+
+.item-detalle-contenedor {
+  margin: 40px 16px 16px 16px;
+  padding: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-detalle {
+  background-color: #f1f1f1;
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.btnPrimary {
+  border: 1px solid rgb(70, 49, 167);
+  padding: 5px;
+  margin: 5px;
+  width: 135px;
+  font-size: 14px;
+  background-color: rgb(70, 49, 167);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 15px;
+}
+
+.btnOperacion {
+  border: 1px solid rgb(70, 49, 167);
+  padding: 5px;
+  margin: 5px;
+  width: 50px;
+  font-size: 14px;
+  background-color: white;
+  color: rgb(70, 49, 167);
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 15px;
+}
+
+.text-input {
+  width: 40px;
+}
