@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({producto}) => {
     
   let desc=(producto.price-(producto.price * producto.descuento) / 100);
-    let estiloDescuento=(producto.modalidad==="presencial")? "descuentoPresencial" : "descuentoOnline";
+  let estiloDescuento=(producto.modalidad==="presencial")? "descuentoPresencial" : "descuentoOnline";
   
+  const {addToCart} = useContext(CartContext);
+ 
+
+  const onAdd = (cantidad) => {
+      console.log(`Agregaste ${cantidad} productos al carrito!`);
+      addToCart(producto,cantidad);
+      { /* <div className="info">{cantidad === 0 ? <p></p> : <p>Se agregaron {cantidad} productos</p>}</div> */}
+  };
+
+
     return ( 
       <div className="item">
             <div >
@@ -29,6 +42,9 @@ const ItemDetail = ({producto}) => {
                   </div>
               </article>
               <div className="info">{producto.descripcion}</div>
+              <ItemCount stock={producto.cupo} onAdd={onAdd}/>
+              
+              <Link to="/Cart">Terminar Compra</Link>
       </div>
     )
 }
