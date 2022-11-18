@@ -11,8 +11,7 @@ const CartProvider=(props)=>{
         //console.log({...producto,cantidad});
         if(estaEnCarrito(producto.id)){
          alert("Ya está en el carrito");
-         const resultProd = cart.find((prod) => prod.id === producto.id);
-         addQuantityCart(resultProd, cantidad);
+         sumarCantidad(producto, cantidad);
         }else{
             setCart([...cart,{...producto,cantidad}]);
         }
@@ -21,19 +20,57 @@ const CartProvider=(props)=>{
     const estaEnCarrito= (id)=>{
         return cart.some((prod)=>prod.id===id);
     }
-    //variables
+   //variables
 
-    // Función para sumar cantidad si esta en el carrito
-  const addQuantityCart = (prod, qty) => {
-    const cantidad = prod.cantidad + qty;
-    setCart([cart.filter((prodFilter) => prodFilter.id === prod.id), { ...prod, cantidad }]);
-    //setCart([...cart,{ ...prod, quantity }]);
-  };
+  //funcion para sumar la cantidad de un mismo producto
+  const sumarCantidad = (itemPorAgregar, cantidad) => {
+    
+    const cartActualizado = cart.map((prodDelCarrito) => {
+        if (prodDelCarrito.id === itemPorAgregar.id) {
+            cantidad=prodDelCarrito.cantidad+cantidad;
+            const productoActualizado = {
+                ...prodDelCarrito,
+                cantidad,
+            };
+            return productoActualizado;
+        } else {
+            return prodDelCarrito;
+        }
+    });
+    setCart(cartActualizado);
+};
+ 
+  const totalUnidades = () => {
+    let contadorUnidades = 0;
+    const copiaCarrito = [...cart];
+    copiaCarrito.forEach((curso) => {
+        contadorUnidades = contadorUnidades += curso.cantidad;
+    });
+    return contadorUnidades;
+    };
+
+
+  //funcion que suma la cantidad
+  const totalPrecio= ()=>{
+    return 1000;
+  }
+
+  
+    //funcion para vaciar el carrito
+    const deleteAll = () => {
+        setCart([]);
+    };
+
+    //funcion para eliminar un solo producto
+    const deleteOne = (id) => {
+        const prodFiltrados = cart.filter((prod) => prod.id !== id);
+        setCart(prodFiltrados);
+    };
 
     console.log(cart);
      
     return(
-        <CartContext.Provider value={{cart, addToCart}}>
+        <CartContext.Provider value={{cart, addToCart, deleteOne, deleteAll, totalPrecio, totalUnidades}}>
             {props.children}
         </CartContext.Provider>
     )

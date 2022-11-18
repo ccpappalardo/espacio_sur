@@ -12,7 +12,7 @@ const ItemDetail = ({producto}) => {
  
 
   const onAdd = (cantidad) => {
-      console.log(`Agregaste ${cantidad} productos al carrito!`);
+  //    console.log(`Agregaste ${cantidad} productos al carrito!`);
       addToCart(producto,cantidad);
       { /* <div className="info">{cantidad === 0 ? <p></p> : <p>Se agregaron {cantidad} productos</p>}</div> */}
   };
@@ -21,12 +21,13 @@ const ItemDetail = ({producto}) => {
     return ( 
       <div className="item">
             <div >
-              <img src={producto.img} width="220px" alt={producto.title} />
+              <h2>{producto.title}</h2>
+              <img src={producto.img} width="600px" alt={producto.title} />
               </div>
               <article className="info">
-                  <h2>{producto.title}</h2>
+               
                   {
-                      producto.descuento!=="0"?<h4 className={`${estiloDescuento}`}>{producto.descuento}% off</h4> : ''
+                      producto.descuento!==0?<h4 className={`${estiloDescuento}`}>{producto.descuento}% off</h4> : ''
                   }
                     {
                       producto.modalidad==="presencial"?
@@ -37,7 +38,7 @@ const ItemDetail = ({producto}) => {
                   <div className="info-price">
                       <h3>${desc}.-</h3>
                       {
-                          producto.descuento!=="0"? <h5>${producto.price}.-</h5> :''
+                          producto.descuento!==0? <h5>${producto.price}.-</h5> :''
                       }
                   </div>
               </article>

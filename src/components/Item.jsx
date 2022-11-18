@@ -11,7 +11,7 @@ const Item = ({ producto }) => {
             <article className="info">
                 <h2>{producto.title}</h2>
                 {
-                    producto.descuento!=="0"?<h4 className={`${estiloDescuento}`}>{producto.descuento}% off</h4> : ''
+                    producto.descuento!==0?<h4 className={`${estiloDescuento}`}>{producto.descuento}% off</h4> : ''
                 }
                 {
                     producto.modalidad==="presencial"?
@@ -21,7 +21,7 @@ const Item = ({ producto }) => {
                 <div className="info-price">
                     <h3>${desc}.-</h3>
                     {
-                        producto.descuento!=="0"? <h5>${producto.price}.-</h5> :''
+                        producto.descuento!==0? <h5>${producto.price}.-</h5> :''
                     }
                 </div>
 
