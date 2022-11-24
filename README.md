@@ -1,6 +1,7 @@
 # E S P A C I O S U R
 
 Espacio Sur es un proyecto E-Commerce de venta de Cursos On-line, realizado en React Js y como servidor se utilizó Firebase.
+Algunos de los títulos de los cursos fueron tomados de plataformas reales, los mismos fueron tomados como referencia para la realización del proyecto.
 
 # Funcionalidades del Proyecto - Usuario
 
