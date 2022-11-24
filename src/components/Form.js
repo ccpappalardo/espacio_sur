@@ -13,7 +13,7 @@ const Form = () => {
     const [email, setEmail] = useState('');
     const [email1, setEmail1] = useState('');
     const [orderId, setOrderId] = useState('');
-    const [mensaje,setMensaje]=useState('');
+ 
  
     const { cart, totalPrecio, deleteAll} = useContext(CartContext);
     const totalCarrito = totalPrecio();
@@ -58,7 +58,7 @@ const Form = () => {
         return (
             <div className="contenedorLoader">
                  <h1>Gracias por tu compra tu número de seguimiento es:  {orderId}</h1>
-                 <span>Recordá que podrás consultarla en - <Link className="active" to="/orders/"><b>Mis Pedidos </b></Link></span>
+                 <span>Recordá que podrás consultarla en - <Link className="active" to="/orders/"><b>Mis Ordenes </b></Link></span>
             </div>
         );
     }
@@ -154,7 +154,6 @@ const Form = () => {
                             </tr>  
                         </tbody>
                         </table>
-                        <span>{mensaje}</span>
                         <button  disabled={email1!==email} className='btnPrimary'>Enviar</button> 
                     </div> 
                 </div>

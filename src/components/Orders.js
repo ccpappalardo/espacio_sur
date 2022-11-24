@@ -2,7 +2,7 @@ import {doc, getDoc} from 'firebase/firestore';
 import React from 'react'
 import { useState } from 'react';  
 import { colleccionOrder } from '../services/firebaseConfig';
-import OrderDetail from './OrderDetail';
+import OrderDetail from './OrderDetail'; 
 
 export const Orders = () => {
     const [idOrden, setIdOrden] = useState('');
@@ -29,7 +29,8 @@ export const Orders = () => {
                 console.log(error);
             }) 
     }
-    
+ 
+
 if (ordenes.length>0) {
 
     return (
@@ -40,6 +41,7 @@ if (ordenes.length>0) {
             <h3>Estado: <span className="colorVioleta">En preparación</span></h3>
             <span>Nos contactaremos en las próximas 72 hs desde el día de tú compra.</span>
             <OrderDetail order={ordenes} />
+            
         </div>
         ) 
 }
@@ -61,6 +63,7 @@ if (!loading) {
             />
             <button className='btnPrimary' disabled={idOrden===""} >Buscar</button>
         </form>
+       
         </div>
       )
     }

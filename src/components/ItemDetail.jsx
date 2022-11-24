@@ -30,6 +30,7 @@ const ItemDetail = ({producto}) => {
       });
   };
 
+  
     return ( 
       <div className="item">
             <div >

@@ -14,6 +14,29 @@ Espacio Sur es un proyecto E-Commerce de venta de Cursos On-line, realizado en R
   - vaciar el carrito, en caso de arrepentirse de la compra.
   - así como también, ir al checkout para finalizar el pedido.
 - Para poder finalizar la compra, es necesario completar un formulario de contacto con los datos personales del Usuario, mediante el cual se le mostrará en pantalla un código de seguimiento de la órden.
+- Se podrá consultar la Órden de compra una vez realizada la compra.
+
+# Visualización del proyecto
+
+### Home
+
+![](public/home.png)
+
+### Modalidades
+
+![](public/modalidades.png)
+
+### Detalle del Curso
+
+![](public/detalle.png)
+
+### Carrito de productos
+
+![](public/carrito.png)
+
+### Buscador - Mis Ordenes
+
+![](public/misordenes.png)
 
 # Funcionalidades del Proyecto - Base de Datos
 
@@ -56,73 +79,43 @@ Espacio Sur es un proyecto E-Commerce de venta de Cursos On-line, realizado en R
 
 - [GitHub](https://github.com/) GitHub es un servicio basado en la nube que aloja un sistema de control de versiones (VCS) llamado Git. Éste permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, a la vez que mantienen un seguimiento detallado de su progreso.
 
-# Getting Started with Create React App
+- [Material Icons](https://fonts.google.com/icons) Permite agregar iconos a tu sitio web en HTML es utilizando los icons fonts material de Google, sin agregar mas archivos a tu sitio.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ejecutar el proyecto desde un editor de código:
 
-## Available Scripts
+- Ejecutar el proyecto en la consola del editor de código:
+  ```bash
+  npm start
+  ```
 
-In the project directory, you can run:
+# Empezando con React - Create React App
 
-### `npm start`
+Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Clonar repositorio de forma local
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Clonar el repositorio: git clone [Link al Repositorio](https://github.com/ccpappalardo/espacio_sur)
 
-### `npm test`
+- Instalar las dependencias:
+  ```bash
+  npm install
+  ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scripts Disponibles
 
-### `npm run build`
+- En el directorio del proyecto, puedes ejecutar:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```bash
+  npm start
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Este comando corre la aplicación en modo desarrollador.\
+Abri tu navegador en [http://localhost:3000](http://localhost:3000) para ver el proyecto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+El sitio se recargará cuando hagas cambios....
 
-### `npm run eject`
+## Aprender más sobre React - Create React App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Puedes aprender más en la [Documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para aprender React puedes chequear la [Documentación de React](https://reactjs.org/).
