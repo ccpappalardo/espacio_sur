@@ -42,9 +42,7 @@ export const products = [
 
     
 ];
-
-//Funcion que devuelve un array de productos filtrados por categoría/modalidad
-
+/*
 export const getProducts = (modalidadName) => {
     return new Promise((res, rej) => {
         const prodFiltrados = products.filter(
@@ -57,9 +55,6 @@ export const getProducts = (modalidadName) => {
     });
 };
 
-
-//Funcion que devuelve un producto en particular -- se pasa el producto id por parámetro
-
 export const getProduct = (productId) => {
     return new Promise((res, rej) => {
         const product = products.find(
@@ -71,3 +66,5 @@ export const getProduct = (productId) => {
         }, 500);
     });
 };
+
+*/

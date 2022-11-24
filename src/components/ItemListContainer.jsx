@@ -6,30 +6,18 @@ import ItemList from './ItemList';
 import { HashLoader } from 'react-spinners';
 
 const ItemListContainer = ({}) => {
+ 
+  const [loading, setLoading] = useState(true); 
+  const [items, setItems] = useState([]); 
+  const { nombreModalidad } = useParams();  
 
-  //constante para el loader
-  const [loading, setLoading] = useState(true);
-  //Use State, para setear el estado del item-
-  const [items, setItems] = useState([]);
-
-  const { nombreModalidad } = useParams(); 
-//if catergoryname -> tal cosa, sino tal otra.
-
-
-  useEffect(() => {
-
-    //
+  useEffect(() => { 
     const ref = nombreModalidad
     ? query(colleccionProd, where('modalidad', '==', nombreModalidad))
     : colleccionProd;
-
-   // const colleccionProd=collection(db,'cursos')
-
-    //Retorna una promesa.
+ 
     getDocs(ref)
-    .then((res) => {
-        //setItems(res);c
-      //  const q=query(colleccionProd, where('modalidad','===',nombreModalidad));
+    .then((res) => { 
         const products=res.docs.map((prod)=>{
           return {
             id:prod.id,
@@ -45,24 +33,17 @@ const ItemListContainer = ({}) => {
     }).finally(() => {
       setLoading(false);
   });
+     return () => setLoading(true);
+    }, [nombreModalidad]);  
 
-  return () => setLoading(true);
-}, [nombreModalidad]); 
-  /*  getProducts(nombreModalidad)
-        .then((res) => {
-            setItems(res);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }, [nombreModalidad]);*/
+
     if (loading) {
-      return (
-        <div className="contenedorLoader">
-          <HashLoader color="#7736d6" />    
-          </div>
-      );
-  }
+          return (
+            <div className="contenedorLoader">
+              <HashLoader color="#7736d6" />    
+              </div>
+          );
+      }
 
       return (
           <div id="container">

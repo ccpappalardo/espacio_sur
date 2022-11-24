@@ -7,11 +7,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({producto}) => {
     
-
   const {addToCart,priceWithDiscount} = useContext(CartContext);
   let desc=priceWithDiscount(producto);
   let estiloDescuento=(producto.modalidad==="presencial")? "descuentoPresencial" : "descuentoOnline";
- 
+
 
   const onAdd = (cantidad) => {
       addToCart(producto,cantidad);
@@ -19,7 +18,6 @@ const ItemDetail = ({producto}) => {
   };
 
   const showToastMessage = () => {
-
     toast('Has agregado un producto al carrito!', {
       position: "bottom-center",
       autoClose: 4000,
@@ -31,7 +29,7 @@ const ItemDetail = ({producto}) => {
       theme: "dark",
       });
   };
-  
+
     return ( 
       <div className="item">
             <div >
@@ -41,7 +39,7 @@ const ItemDetail = ({producto}) => {
                 : <h4 className="modalidadOnline"># {producto.modalidad}</h4>
               }
               <h2>{producto.title}</h2>
-              <div style={{position:'relative', }}>
+              <div>
                 {
                   producto.descuento!==0?<h4 className={`${estiloDescuento}`}>{producto.descuento}% off</h4> : ''
                 }

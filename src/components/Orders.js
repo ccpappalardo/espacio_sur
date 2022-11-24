@@ -1,7 +1,6 @@
 import {doc, getDoc} from 'firebase/firestore';
 import React from 'react'
-import { useState } from 'react'; 
-import { ToastContainer } from 'react-toastify';
+import { useState } from 'react';  
 import { colleccionOrder } from '../services/firebaseConfig';
 import OrderDetail from './OrderDetail';
 
@@ -12,6 +11,7 @@ export const Orders = () => {
     const [ordenes, setOrdenes] = useState([]);
     const [cliente, setCliente] =useState([])
     const [loading, setLoading] = useState(false);
+     
       
     const searchOrder = (e) => { 
      
@@ -20,7 +20,6 @@ export const Orders = () => {
         getDoc(ref)
             .then((res) => { 
                 setOrdenes([...res.data().items]);
-                console.log(res.data().buyer)
                 setCliente(
                    { cliente: res.data().buyer}   
                 )
@@ -35,7 +34,7 @@ if (ordenes.length>0) {
 
     return (
         <div> 
-            <h2 className="brand">MIS PEDIDOS</h2>
+            <h2 className="brand">MIS ORDENES</h2>
             <h2 className="titulo"> El Detalle de tu Orden Id :  {idOrden}</h2>
             <h3>Cliente:  {cliente.cliente.name} {cliente.cliente.lastName}</h3>
             <h3>Estado: <span className="colorVioleta">En preparación</span></h3>
@@ -46,12 +45,12 @@ if (ordenes.length>0) {
 }
     
 
-if (loading==false) {
+if (!loading) {
        
       return (
         <div className='container'>  
         <form action="" onSubmit={searchOrder}  className="titulo">
-        <h2 className="brand">MIS PEDIDOS</h2>
+        <h2 className="brand">MIS ORDENES</h2>
         <h2 className="titulo">Buscar Orden</h2>
         <label> Ingresa el Número de Órden: </label>
             <input type="text"
@@ -60,7 +59,7 @@ if (loading==false) {
                 onChange={handleOrder}
                 value={idOrden}
             />
-            <button className='btnPrimary' disabled={idOrden==""} >Buscar</button>
+            <button className='btnPrimary' disabled={idOrden===""} >Buscar</button>
         </form>
         </div>
       )

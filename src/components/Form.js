@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext'; 
 import { db } from '../services/firebaseConfig'; 
 
-const Form = () => {
-    //Campos del formulario - estado para cada uno
+const Form = () => { 
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [adress, setAdress] = useState('');
@@ -15,14 +14,10 @@ const Form = () => {
     const [email1, setEmail1] = useState('');
     const [orderId, setOrderId] = useState('');
     const [mensaje,setMensaje]=useState('');
-    //crear un estado de loading
-
+ 
     const { cart, totalPrecio, deleteAll} = useContext(CartContext);
     const totalCarrito = totalPrecio();
- 
-    console.log(cart);
-
-    //Handle para los estados
+  
     const handleName = (e) => setName(e.target.value);
     const handleLastName = (e) => setLastName(e.target.value);
     const handleAdress = (e) => setAdress(e.target.value);
@@ -30,40 +25,10 @@ const Form = () => {
     const handleEmail = (e) => setEmail(e.target.value);
     const handleEmail1 = (e) => setEmail1(e.target.value);
 
-    const validarDatos=()=>{
-        let validado=false;
-        
-        if(name!==''){
-            validado=true;
-            setMensaje("Debe completar el campo nombre");
-        }
-        if(lastName!==''){
-            validado=true;
-            setMensaje("Debe completar el campo apellido");
-        }
-        if(adress!==''){
-            validado=true;
-            setMensaje("Debe completar el campo dirección");
-        }
-        if(phone!==''){
-            validado=true;
-            setMensaje("Debe completar el campo teléfono");
-        }
-        if(email!=='' || email1!==''){
-            validado=true;
-            setMensaje("Debe completar el campo email");
-        }
-        if(email==email1){
-            validado=true;
-            setMensaje("Los correos deben ser iguales");
-        }
-        return validado;
-    }
-
+    
     const enviarDatos = (e) => {
-        e.preventDefault();
-        //console.log({ name, lastName });
-        if(validarDatos()){
+        e.preventDefault(); 
+       
         const objOrden = {
             buyer: {
                 name,
@@ -86,16 +51,14 @@ const Form = () => {
             })
             .catch((error) => {
                 console.log('Hubo un error', error);
-            });
-        } 
+            });  
     };
-
     
     if(orderId){
         return (
             <div className="contenedorLoader">
                  <h1>Gracias por tu compra tu número de seguimiento es:  {orderId}</h1>
-                 <span>Recordá que podrás consultarla en - <Link to="/orders/">Mis Pedidos.</Link></span>
+                 <span>Recordá que podrás consultarla en - <Link className="active" to="/orders/"><b>Mis Pedidos </b></Link></span>
             </div>
         );
     }
@@ -120,11 +83,11 @@ const Form = () => {
 
                  <div className="container">
                     <div className="rowcarrito">
-                        <table className="table w-100 text-center cart-table">
+                        <table>
                         <thead>
                             <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th></th>
+                            <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,7 +154,8 @@ const Form = () => {
                             </tr>  
                         </tbody>
                         </table>
-                        <button className='btnPrimary'>Enviar</button> 
+                        <span>{mensaje}</span>
+                        <button  disabled={email1!==email} className='btnPrimary'>Enviar</button> 
                     </div> 
                 </div>
             </form>

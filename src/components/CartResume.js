@@ -43,4 +43,5 @@ const CartResume = () => {
     </div>
   )
 }
+
 export default CartResume

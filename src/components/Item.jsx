@@ -7,7 +7,6 @@ const Item = ({ producto }) => {
     
     const {priceWithDiscount} = useContext(CartContext);
     let desc=priceWithDiscount(producto);
-   
     let estiloDescuento=(producto.modalidad==="presencial")? "descuentoPresencial" : "descuentoOnline";
 
     return (

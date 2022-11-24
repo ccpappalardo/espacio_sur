@@ -48,7 +48,7 @@ const Navbar = () => {
                 }
             </ul>
             <NavLink className="linkCursos" to="/orders/">
-                       Mis Pedidos
+                       Mis Ordenes
             </NavLink> 
             <CartWidget/>
     </nav>
