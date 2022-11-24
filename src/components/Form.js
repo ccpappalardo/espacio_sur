@@ -57,7 +57,7 @@ const Form = () => {
     if(orderId){
         return (
             <div className="contenedorLoader">
-                 <h1>Gracias por tu compra tu número de seguimiento es:  {orderId}</h1>
+                 <h1>Gracias por tu compra tu número de Orden es:  {orderId}</h1>
                  <span>Recordá que podrás consultarla en - <Link className="active" to="/orders/"><b>Mis Ordenes </b></Link></span>
             </div>
         );
