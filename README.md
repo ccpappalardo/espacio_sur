@@ -20,15 +20,15 @@ Espacio Sur es un proyecto E-Commerce de venta de Cursos On-line, realizado en R
 
 ### Home
 
-![](public/home.png)
+![](public/home.PNG)
 
 ### Modalidades
 
-![](public/modalidades.png)
+![](public/modalidades.PNG)
 
 ### Detalle del Curso
 
-![](public/detalle.png)
+![](public/detalle.PNG)
 
 ### Carrito de productos
 
@@ -36,7 +36,7 @@ Espacio Sur es un proyecto E-Commerce de venta de Cursos On-line, realizado en R
 
 ### Buscador - Mis Ordenes
 
-![](public/misordenes.png)
+![](public/misordenes.PNG)
 
 # Funcionalidades del Proyecto - Base de Datos
 
