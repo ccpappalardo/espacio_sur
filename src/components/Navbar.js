@@ -38,7 +38,7 @@ const Navbar = () => {
             <ul> 
                 <NavLink className="linkCursos" to="/">
                        Cursos
-                  </NavLink> 
+                </NavLink> 
                 {
                 modalidad.map((mod) => (
                     <NavLink  key={mod.id}  className="link" to={`/modalidad/${mod.path}`}>
@@ -47,10 +47,9 @@ const Navbar = () => {
                 ))
                 }
             </ul>
-
-            {/*<div className="nav-links"><Link className="link"  to="/">Cursos</Link></div>
-            <div className="nav-links"><NavLink className="link"  to="/modalidad/online"># Online</NavLink></div>
-            <div className="nav-links"><NavLink className="link" to="/modalidad/presencial"># Presencial</NavLink></div> */}
+            <NavLink className="linkCursos" to="/orders/">
+                       Mis Pedidos
+            </NavLink> 
             <CartWidget/>
     </nav>
   )

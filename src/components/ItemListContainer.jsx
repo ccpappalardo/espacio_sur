@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where} from 'firebase/firestore';
+import { getDocs, query, where} from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; 
 import { colleccionProd} from '../services/firebaseConfig';
@@ -7,8 +7,8 @@ import { HashLoader } from 'react-spinners';
 
 const ItemListContainer = ({}) => {
 
-     //constante para el loader
-     const [loading, setLoading] = useState(true);
+  //constante para el loader
+  const [loading, setLoading] = useState(true);
   //Use State, para setear el estado del item-
   const [items, setItems] = useState([]);
 

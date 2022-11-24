@@ -1,8 +1,13 @@
 import React from 'react'
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
 const Item = ({ producto }) => {
-    let desc=(producto.price-(producto.price * producto.descuento) / 100);
+    
+    const {priceWithDiscount} = useContext(CartContext);
+    let desc=priceWithDiscount(producto);
+   
     let estiloDescuento=(producto.modalidad==="presencial")? "descuentoPresencial" : "descuentoOnline";
 
     return (
@@ -25,7 +30,7 @@ const Item = ({ producto }) => {
                     }
                 </div>
 
-                <NavLink className="btnVerDetalle"to={`/detail/${producto.id}`}>ver detalle</NavLink>
+                <NavLink className="btnVerDetalle" to={`/detail/${producto.id}`}>ver detalle</NavLink>
             </article>
         </div>
     );
