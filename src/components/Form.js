@@ -2,9 +2,11 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from '../context/CartContext'; 
 import { db } from '../services/firebaseConfig'; 
-
+ 
 const Form = () => { 
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -13,8 +15,7 @@ const Form = () => {
     const [email, setEmail] = useState('');
     const [email1, setEmail1] = useState('');
     const [orderId, setOrderId] = useState('');
- 
- 
+    
     const { cart, totalPrecio, deleteAll} = useContext(CartContext);
     const totalCarrito = totalPrecio();
   
@@ -24,11 +25,37 @@ const Form = () => {
     const handlePhone = (e) => setPhone(e.target.value);
     const handleEmail = (e) => setEmail(e.target.value);
     const handleEmail1 = (e) => setEmail1(e.target.value);
+ 
+  const errorCamposVacios = () => {
+    toast.error('Error - Falta completar campos en el formulario', {
+        position: "bottom-center",
+        theme: "dark",
+    });
+  };
 
+  const errorCorreos= () => {
+    toast.error('Error - Los email deben coincidir', {
+        position: "bottom-center",
+        theme: "dark",
+    });
+  }; 
+
+  const validarCampos=()=>{
+    let validado=true;
+    if (name === "" || lastName === "" || phone === "" || adress === "" || email === "" || email1 === "") {
+        errorCamposVacios();
+        validado=false;
+        } else if (email !== email1) {
+        errorCorreos();
+        validado=false;
+        }                  
+        return validado;
+    }
     
     const enviarDatos = (e) => {
         e.preventDefault(); 
-       
+
+        if(validarCampos()){       
         const objOrden = {
             buyer: {
                 name,
@@ -52,6 +79,7 @@ const Form = () => {
             .catch((error) => {
                 console.log('Hubo un error', error);
             });  
+        }
     };
     
     if(orderId){
@@ -154,10 +182,11 @@ const Form = () => {
                             </tr>  
                         </tbody>
                         </table>
-                        <button  disabled={email1!==email} className='btnPrimary'>Enviar</button> 
+                        <button className='btnPrimary'>Enviar</button> 
                     </div> 
                 </div>
             </form>
+            <ToastContainer />
         </div>
     );
     
